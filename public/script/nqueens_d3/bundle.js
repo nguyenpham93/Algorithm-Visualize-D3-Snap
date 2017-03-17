@@ -34,7 +34,8 @@ class nqueen {
             'font-size' : 60,
             'width' : 80,
             'height' : 80,
-            'codeText' : '\u265A'
+            'codeText' : '\u265A',
+            'speedAuto' : 800
         };
     }
     solve_n_queens(i,j,n){
@@ -197,7 +198,6 @@ class nqueen {
         let thick = Math.floor(num_solution/boardsPerRow); 
         let x = 0;
         let y = thick * sizeBoard + 20 * (thick + 1) ;  
-        if(y == 0) y += 20;
         let newSvgHeight = (thick + 1) * sizeBoard + 50;
         this.s2.setHeight(newSvgHeight);
         if(num_solution % boardsPerRow != 0){
@@ -270,7 +270,8 @@ class nqueen {
             'font-size' : 60,
             'width' : 80,
             'height' : 80,
-            'codeText' : '\u265A'
+            'codeText' : '\u265A',
+            'speedAuto' : this.options.speedAuto
         };
     }
 
@@ -318,13 +319,21 @@ class nqueen {
         }
     }
 
-    runAuto(timeout){
+    runAuto(){
         if(!this.interval){
             let _this = this;
             _this.interval = setInterval( function(){
                 if(_this.endLooking) _this.autoOff();
                 _this.next();
-            } ,timeout || 800);
+            } ,_this.options.speedAuto);
+        }
+    }
+
+    speedAuto(time){
+        this.options.speedAuto = time;
+        if(this.interval){
+            this.autoOff();
+            this.runAuto();
         }
     }
 
@@ -671,7 +680,29 @@ $("#btnNext").click(function(){
 });
 
 $("#btnAuto").click(function(){
-    queen.runAuto(50);        
+    queen.runAuto();        
+});
+
+$("#btnSpeed").click(function(){
+    let curSpeed = $(this).text(); 
+    let speed = 0;
+    switch (curSpeed){
+        case "X1" :
+            speed = 400;
+            $(this).text("X2");
+            break;
+        case "X2" :
+            speed = 100;
+            $(this).text("X3");
+            break;
+        case "X3" :
+            speed = 800;
+            $(this).text("X1");
+            break;
+        default :
+             speed = 800; 
+    }         
+    queen.speedAuto(speed);
 });
 
 },{"../my_module/runner":2}]},{},[7]);

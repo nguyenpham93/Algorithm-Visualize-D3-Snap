@@ -16,5 +16,27 @@ $("#btnNext").click(function(){
 });
 
 $("#btnAuto").click(function(){
-    queen.runAuto(50);        
+    queen.runAuto();        
+});
+
+$("#btnSpeed").click(function(){
+    let curSpeed = $(this).text(); 
+    let speed = 0;
+    switch (curSpeed){
+        case "X1" :
+            speed = 400;
+            $(this).text("X2");
+            break;
+        case "X2" :
+            speed = 100;
+            $(this).text("X3");
+            break;
+        case "X3" :
+            speed = 800;
+            $(this).text("X1");
+            break;
+        default :
+             speed = 800; 
+    }         
+    queen.speedAuto(speed);
 });

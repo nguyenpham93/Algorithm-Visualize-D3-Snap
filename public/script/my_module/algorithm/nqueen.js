@@ -33,7 +33,8 @@ class nqueen {
             'font-size' : 60,
             'width' : 80,
             'height' : 80,
-            'codeText' : '\u265A'
+            'codeText' : '\u265A',
+            'speedAuto' : 800
         };
     }
     solve_n_queens(i,j,n){
@@ -268,7 +269,8 @@ class nqueen {
             'font-size' : 60,
             'width' : 80,
             'height' : 80,
-            'codeText' : '\u265A'
+            'codeText' : '\u265A',
+            'speedAuto' : this.options.speedAuto
         };
     }
 
@@ -316,13 +318,21 @@ class nqueen {
         }
     }
 
-    runAuto(timeout){
+    runAuto(){
         if(!this.interval){
             let _this = this;
             _this.interval = setInterval( function(){
                 if(_this.endLooking) _this.autoOff();
                 _this.next();
-            } ,timeout || 800);
+            } ,_this.options.speedAuto);
+        }
+    }
+
+    speedAuto(time){
+        this.options.speedAuto = time;
+        if(this.interval){
+            this.autoOff();
+            this.runAuto();
         }
     }
 

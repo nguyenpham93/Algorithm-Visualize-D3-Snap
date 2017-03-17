@@ -1,0 +1,22 @@
+{
+  "name": "nqueens-d3-snapsvg-sever",
+  "version": "1.0.0",
+  "description": "N-Queens Using D3.js , Snapsvg.js run on sever!",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start" : "nodemon index.js"
+  },
+  "keywords": [
+    "nqueens",
+    "d3",
+    "snapsvg"
+  ],
+  "author": "bluevn",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "nunjucks": "^3.0.0"
+  }
+}

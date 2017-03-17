@@ -1,0 +1,30 @@
+*{
+  box-sizing: border-box;
+}
+.container-fluid{
+  min-height: 100vh;
+  background-image: url("../img/grass.png");
+  background-repeat : no-repeat;
+  background-size: cover; 
+}
+#mainsvg{
+  width:550px;
+  height:550px;
+  position: relative;
+  left :10%;
+}
+#svg_solutions{
+  width: 100%;
+}
+
+#status{
+  margin-left: 10px;
+  color: darkred;
+}
+
+.groupbtn{
+  margin-top: 10px;
+  margin-bottom:10px;
+}
+
+

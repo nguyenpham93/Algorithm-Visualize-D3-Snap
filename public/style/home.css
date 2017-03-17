@@ -1,0 +1,21 @@
+body{
+    background-color:#bbbcbf;
+}
+.container-fluid{
+    background-image: url("../img/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width:80%;
+    min-height: 100vh;
+}
+h1,h3{
+    color: #fff;
+}
+#nqueens{
+    width:80%;
+    height:200px;
+    margin: auto;
+}
+a h4{
+    color: blue;
+}
